@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 #include <iomanip>
 
@@ -40,6 +40,7 @@ int Size(sv a) {
 	}
 	return cnt;
 }
+// Thêm sv vào đầu ds
 void insertFirst(sv& a) {
 	sv tmp = makeNode();
 	if (a == NULL) {
@@ -50,6 +51,7 @@ void insertFirst(sv& a) {
 		a = tmp;
 	}
 }
+// Thêm sv vào cuối ds
 void insertLast(sv& a) {
 	sv tmp = makeNode();
 	if (a == NULL) {
@@ -63,6 +65,7 @@ void insertLast(sv& a) {
 		p->next = tmp;
 	}
 }
+// Thêm sv tùy ý vào ds
 void insertMiddle(sv& a, int pos) {
 	int n = Size(a);
 	if (pos <= 0 || pos > n + 1) {
@@ -82,10 +85,12 @@ void insertMiddle(sv& a, int pos) {
 	tmp->next = p->next;
 	p->next = tmp;
 }
+// Xóa phần tử đầu ds
 void deleteFirst(sv& a) {
 	if (a == NULL) return;
 	a = a->next;
 }
+// Xóa phần tử cuối ds
 void deleteLast(sv& a) {
 	if (a == NULL) return;
 	sv truoc = NULL, sau = a;
@@ -100,6 +105,7 @@ void deleteLast(sv& a) {
 		truoc->next = NULL;
 	}
 }
+// Xóa phần tử tùy ý
 void deleteMiddle(sv& a, int pos) {
 	if (pos <= 0 || pos > Size(a)) return;
 	sv truoc = NULL, sau = a;
@@ -124,7 +130,7 @@ void in(Student s) {
 	cout << "GPA : " << fixed << setprecision(2) << s.gpa << endl;
 	cout << "--------------------------------\n";
 }
-
+// Lưu và in ra ds sv
 void inds(sv a) {
 	cout << "Danh sach sinh vien :\n";
 	while (a != NULL) {
@@ -133,7 +139,7 @@ void inds(sv a) {
 	}
 	cout << endl;
 }
-
+// Sắp xếp theo gpa
 void sapxep(sv& a) {
 	for (sv p = a; p->next != NULL; p = p->next) {
 		sv min = p;
@@ -147,6 +153,7 @@ void sapxep(sv& a) {
 		p->s = tmp;
 	}
 }
+// Tìm kiếm sv theo mssv
 void timkiemtheomssv(sv a)
 {
 	string x;
